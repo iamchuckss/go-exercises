@@ -66,7 +66,7 @@ func ConcurrentMutex(url string, fetcher Fetcher, f *fetchState) {
 	return
 }
 
-func makeState() *fetchState {
+func MakeState() *fetchState {
 	f := &fetchState{}
 	f.fetched = make(map[string]bool)
 	return f

@@ -8,7 +8,7 @@ type Fetcher interface {
 	Fetch(url string) (body string, urls []string, err error)
 }
 
-// fakeFetcher is Fetcher that returns canned results.
+// FakeFetcher is Fetcher that returns canned results.
 type fakeFetcher map[string]*fakeResult
 
 type fakeResult struct {
@@ -23,8 +23,8 @@ func (f fakeFetcher) Fetch(url string) (string, []string, error) {
 	return "", nil, fmt.Errorf("not found: %s", url)
 }
 
-// fetcher is a populated fakeFetcher.
-var fetcher = fakeFetcher{
+// FetcherImpl is a populated fakeFetcher.
+var FetcherImpl = fakeFetcher{
 	"https://golang.org/": &fakeResult{
 		"The Go Programming Language",
 		[]string{
